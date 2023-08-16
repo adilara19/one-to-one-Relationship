@@ -19,3 +19,6 @@ Route::get('bill', [CustomerController::class, 'bill']);
 Route::get('update', [CustomerController::class, 'update']);
 Route::get('updateBill', [CustomerController::class, 'updateBill']);
 Route::get('read', [CustomerController::class, 'read']);
+Route::get('deleteOrder', [CustomerController::class, 'deleteOrder']);
+Route::get('deleteCustomer', [CustomerController::class, 'deleteCustomer']);
+Route::get('deleteBill', [CustomerController::class, 'deleteBill']);
