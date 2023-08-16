@@ -90,10 +90,42 @@ class CustomerController extends Controller
         return "Mevcut Fatura Güncellendi, Veri Tabanını Kontrol Ediniz.";
     }
 
+
+    //* Veri Okuyabilmek İçin
     public function read(){
         $customer_id = 123;
 
         $customer = Customer::findorFail($customer_id);
         return $customer->order->title;
+    }
+
+
+    //* Siparişi order_id ile Orders Tablosundan Silmek İçin
+    public function deleteOrder(){
+        $order_id = 5;
+
+        Order::where('id', $order_id)->delete();
+
+        return "Mevcut Sipariş Silindi, Veri Tabanını Kontrol Ediniz.";
+    }
+
+
+    //* Müşteriyi customer_id ile Customers Tablosundan Silmek İçin
+    public function deleteCustomer(){
+        $customer_id = 345;
+
+        Customer::where('id', $customer_id)->delete();
+
+        return "Mevcut Müşteri Silindi, Veri Tabanını Kontrol Ediniz.";
+    }
+
+
+    //* Faturayı order_id ile Billings Tablosundan Silmek İçin
+    public function deleteBill(){
+        $order_id = 5;
+
+        Bill::where('id', $order_id)->delete();
+
+        return "Mevcut Fatura Silindi, Veri Tabanını Kontrol Ediniz.";
     }
 }
