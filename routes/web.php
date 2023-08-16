@@ -16,7 +16,7 @@ use App\Http\Controllers\CustomerController;
 
 Route::get('create', [CustomerController::class, 'create']);
 Route::get('bill', [CustomerController::class, 'bill']);
-Route::get('update', [CustomerController::class, 'update']);
+Route::get('updateOrder', [CustomerController::class, 'updateOrder']);
 Route::get('updateBill', [CustomerController::class, 'updateBill']);
 Route::get('read', [CustomerController::class, 'read']);
 Route::get('deleteOrder', [CustomerController::class, 'deleteOrder']);
