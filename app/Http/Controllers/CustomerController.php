@@ -89,4 +89,11 @@ class CustomerController extends Controller
 
         return "Mevcut Fatura Güncellendi, Veri Tabanını Kontrol Ediniz.";
     }
+
+    public function read(){
+        $customer_id = 123;
+
+        $customer = Customer::findorFail($customer_id);
+        return $customer->order->title;
+    }
 }
