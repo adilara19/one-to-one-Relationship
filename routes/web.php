@@ -18,3 +18,4 @@ Route::get('create', [CustomerController::class, 'create']);
 Route::get('bill', [CustomerController::class, 'bill']);
 Route::get('update', [CustomerController::class, 'update']);
 Route::get('updateBill', [CustomerController::class, 'updateBill']);
+Route::get('read', [CustomerController::class, 'read']);
