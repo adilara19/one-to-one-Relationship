@@ -58,7 +58,7 @@ class CustomerController extends Controller
 
 
     //* Mevcut Siparişi Güncellemek İçin
-    public function update(){
+    public function updateOrder(){
         $id = '4'; //Burada aldığımız id ürünün kendi id'si. Bunun yerine customer_id girersek update işlemini gerçekleştirmeyecektir.
         $title = 'Ayakkabı';
         $description = 'Adidas';
@@ -72,7 +72,6 @@ class CustomerController extends Controller
 
         return "Mevcut Sipariş Güncellendi, Veri Tabanını Kontrol Ediniz.";
     }
-
 
     //* Mevcut Faturayı Güncellemek İçin
     public function updateBill(){
