@@ -9,11 +9,13 @@ use App\Models\Bill;
 
 class CustomerController extends Controller
 {
+
+    //* Sipariş Oluşturmak İçin
     public function create(){
-        $customer_id = 123;
-        $title = 'Gözlük';
-        $description = 'Atasun Optikten Alındı';
-        $total = '2000';
+        $customer_id = 345;
+        $title = 'Puzzle';
+        $description = '1000 Parça Göbeklitepe Puzzle';
+        $total = '2850';
 
         $customer = Customer::findOrFail($customer_id);
 
@@ -30,11 +32,12 @@ class CustomerController extends Controller
     }
 
 
+    //* Alınan Siparişin Faturasını Oluşturmak İçin
     public function bill(){
-        $customer_id = 123;
-        $title = 'Gözlük';
-        $description = 'Atasun Optikten Alındı';
-        $total = '2000';
+        $customer_id = 345;
+        $title = 'Puzzle';
+        $description = '1000 Parça Göbeklitepe Puzzle';
+        $total = '2850';
         
         $customer = Customer::find($customer_id);
 
@@ -53,17 +56,37 @@ class CustomerController extends Controller
         return "Fatura Bilgisi Ekledi, Veri Tabanını Kontrol Ediniz";
     }
 
+
+    //* Mevcut Siparişi Güncellemek İçin
     public function update(){
-        $id = '123';
-        $title = 'Gözlük';
-        $description = 'Atasun Optikten Alındı';
-        $total = '2000';
+        $id = '4'; //Burada aldığımız id ürünün kendi id'si. Bunun yerine customer_id girersek update işlemini gerçekleştirmeyecektir.
+        $title = 'Ayakkabı';
+        $description = 'Adidas';
+        $total = '3850';
 
         Order::where('id', $id)->update([
             'title'=>$title,
-            'description'=>$description
+            'description'=>$description,
+            'total'=>$total
         ]);
 
-        return "Mevcut Veri Güncellendi, Veri Tabanını Kontrol Ediniz.";
+        return "Mevcut Sipariş Güncellendi, Veri Tabanını Kontrol Ediniz.";
+    }
+
+
+    //* Mevcut Faturayı Güncellemek İçin
+    public function updateBill(){
+        $id = '4'; //Burada aldığımız id ürünün kendi id'si. Bunun yerine customer_id girersek update işlemini gerçekleştirmeyecektir.
+        $title = 'Ayakkabı';
+        $description = 'Adidas';
+        $total = '3850';
+
+        Bill::where('id', $id)->update([
+            'title'=>$title,
+            'description'=>$description,
+            'total'=>$total
+        ]);
+
+        return "Mevcut Fatura Güncellendi, Veri Tabanını Kontrol Ediniz.";
     }
 }
